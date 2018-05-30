@@ -2,3 +2,24 @@
 {
 	background-color: purple; 
 }
+.main-heading
+{
+	text-align: center;
+	width: 400px;
+	padding-top: 30px;
+}
+.browse-blurb
+{
+	text-align: center;
+	width: 300px;
+	padding-bottom: 30px;
+}
+
+.recipe-card
+{
+	width:18rem;
+}
+body
+{
+	background-color: pink;
+}
