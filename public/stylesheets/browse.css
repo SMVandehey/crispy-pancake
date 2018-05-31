@@ -2,17 +2,10 @@
 {
 	background-color: #5e0080; 
 }
-.main-heading
+.jumbotron
 {
-	text-align: center;
-	width: 400px;
-	padding-top: 30px;
-}
-.browse-blurb
-{
-	text-align: center;
-	width: 300px;
-	padding-bottom: 30px;
+	background-color: #ffccff;
+
 }
 
 .recipe-card
@@ -28,7 +21,7 @@ body
 	background-color: #ffccff;
 }
 
-.next-btn
+.custom-btn
 {
 	background-color: #ff6699;
 	border-color: #ff6699;
