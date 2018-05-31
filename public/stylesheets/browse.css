@@ -1,6 +1,6 @@
 .navbar
 {
-	background-color: purple; 
+	background-color: #5e0080; 
 }
 .main-heading
 {
@@ -19,12 +19,17 @@
 {
 	width:18rem;
 }
+.card-body
+{
+	background-color: #f2f2f2;
+}
 body
 {
-	background-color: pink;
+	background-color: #ffccff;
 }
 
 .next-btn
 {
-	background-color: purple
+	background-color: #ff6699;
+	border-color: #ff6699;
 }

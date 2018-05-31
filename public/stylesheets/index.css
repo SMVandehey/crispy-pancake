@@ -1,14 +1,18 @@
 
 .navbar
 {
-	background-color: purple; 
+	background-color: #660066; 
 }
 .jumbotron
 {
-	background-color: pink;
+	background-color: #ffccff;
 
 }
-
+.btn
+{
+	background-color: #ff6699;
+	border-color: #ff6699;
+}
 .foodpic
 {
 	width: 350px;
