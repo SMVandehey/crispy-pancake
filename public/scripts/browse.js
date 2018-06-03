@@ -1,6 +1,7 @@
-
 $(document).ready(function(){
 
-   // jQuery methods go here...
+   $.get("/getBrowseInfo", function(data, status){
+   		Console.log(JSON.parse(data));
+   }); 
 
 }); 

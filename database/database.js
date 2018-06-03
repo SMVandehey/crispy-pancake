@@ -3,19 +3,21 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password"
+  password: "password",
+  database: "mydb"
 });
 
-function makeConnection()
+function getRecipeTable()
 {
 
-	con.connect(function(err) {
-	  if (err) throw err;
-	  console.log("Connected!");
+	con.query('SELECT * FROM recipe', function (error, results, fields) {
+	  if (error) throw error;
+	  console.log(results);
 	});
-}
 
-exports.createDatabase = function()
-{ 
-	makeConnection();
+	return JSON.stringify(results);
+}
+exports.recipe = function()
+{
+	;
 }
