@@ -16,7 +16,7 @@ router.get('/browse',function(req, res)
 });
 router.get('/getBrowseInfo', function(req,res)
 {
-	res.send(database.getRecipeTable());
+	database.getRecipeTable(req, res);
 })
 
 app.use(express.static(__dirname + '/public'));

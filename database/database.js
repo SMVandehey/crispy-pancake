@@ -7,17 +7,15 @@ var con = mysql.createConnection({
   database: "mydb"
 });
 
-function getRecipeTable()
+exports.getRecipeTable = function(req, res)
 {
+	var result = "";
 
 	con.query('SELECT * FROM recipe', function (error, results, fields) {
 	  if (error) throw error;
-	  console.log(results);
+	  //console.log(results);
+	  result = JSON.stringify(results);
+	  //console.log("stringifed results:" + result);
+	  res.send(result);
 	});
-
-	return JSON.stringify(results);
-}
-exports.recipe = function()
-{
-	;
-}
+};
