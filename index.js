@@ -1,10 +1,15 @@
 var express = require('express');
 var database = require('./database/database')
+var bodyParser = require('body-parser');
 
 var app = express();
 var router = express.Router();
+var jsonParser = bodyParser.json();
+
 var path = __dirname;
-  
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use('/',router);
 router.get('/',function(req, res)
 {
@@ -18,6 +23,11 @@ router.get('/getBrowseInfo', function(req,res)
 {
 	database.getRecipeTable(req, res);
 })
+router.post('/getRecipe', function(req, res)
+{
+	database.queryRecipe(req,res);
+})
+
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));

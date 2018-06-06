@@ -5,6 +5,19 @@ $(document).ready(function(){
    		bindRecipies(obj);
    }); 
 
+   // I DON'T EVEN NEED A FOR-LOOP WTF
+   $(".show-btn").click(function(event){
+   		var id = $(event.target).closest(".card").prop("id");
+   		// card ids start at 0, so add 1 to correct it
+   		var recipeID = parseInt(id.slice(4)) + 1; 
+   		
+   		$.post('/getRecipe',
+   		{
+   			"recipeID": recipeID
+   		});
+   });
+
+
 }); 
 
 function bindRecipies(query)

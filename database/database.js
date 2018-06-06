@@ -11,11 +11,29 @@ exports.getRecipeTable = function(req, res)
 {
 	var result = "";
 
-	con.query('SELECT * FROM recipe', function (error, results, fields) {
+	con.query('SELECT * FROM recipe', function (error, results, fields) 
+	{
 	  if (error) throw error;
-	  //console.log(results);
 	  result = JSON.stringify(results);
-	  //console.log("stringifed results:" + result);
 	  res.send(result);
 	});
+};
+
+exports.queryRecipe = function(req, res)
+{
+	var json = req.body;
+	var recipeID = (json['recipeID']);
+	var query = "select  Ingredient.name, RecipeIngredient.quanity, RecipeIngredient.unit, Recipe.instructions\
+ from Recipe\
+	INNER JOIN RecipeIngredient ON Recipe.recipeID = RecipeIngredient.recipeID\
+    INNER JOIN Ingredient ON RecipeIngredient.ingredientid = Ingredient.ingredientid\
+	WHERE Recipe.recipeID = '" + recipeID + "';";
+
+	con.query(query,function(error, results, fields)
+	{
+		if(error) throw error;
+		res.send(JSON.stringify(results));
+		console.log(results);
+	});
+
 };
