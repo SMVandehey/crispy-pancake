@@ -23,8 +23,8 @@ exports.queryRecipe = function(req, res)
 {
 	var json = req.body;
 	var recipeID = (json['recipeID']);
-	var query = "select  Ingredient.name, RecipeIngredient.quanity, RecipeIngredient.unit, Recipe.instructions\
- from Recipe\
+	var query = "SELECT  Ingredient.name, RecipeIngredient.quanity, RecipeIngredient.unit\
+ 	FROM Recipe\
 	INNER JOIN RecipeIngredient ON Recipe.recipeID = RecipeIngredient.recipeID\
     INNER JOIN Ingredient ON RecipeIngredient.ingredientid = Ingredient.ingredientid\
 	WHERE Recipe.recipeID = '" + recipeID + "';";

@@ -23,10 +23,10 @@
 	</head>
 	
 	<body>
-		<nav class="navbar navbar-dark">
-      		<span class="navbar-brand mb-0 h1">Navbar</span>
-    </nav>
-    <div class="jumbotron">
+	<nav class="navbar navbar-dark">
+		<span class="navbar-brand mb-0 h1">Navbar</span>
+	</nav>
+	<div class="jumbotron">
       <h1 class="display-4">Browse our database of recipies</h1>
       <p class="lead">With over 9000 recipies to choose from, you can find food to satiate even the strongest sayians</p>
       <hr class="my-4">
@@ -34,29 +34,42 @@
       <p class="lead">
         <a class="btn btn-primary btn-lg custom-btn" href="#" role="button">Make an account today!</a>
       </p>
-    </div>
+	</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        ...
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div>
-	    </div>
-	  </div>
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="recipe-name"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+				</div>
+				<div class="modal-body">
+					<img class = "modal-pic" src = "">
+					<p class="modal-description"></p>
+					<table id = "modal-table" class = "table">
+						<thead>
+						<tr>
+							<th scope="col">Quanity</th>
+							<th scope="col">Name</th>
+						</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<p class="modal-instructions"></p>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
 	</div>
-    <div class="container">
+	
+	<div class="container">
 			<div class="card-deck ">
 			  <div id = "card0" class="card">
 			    <img  class="card-img-top" src="" alt="Card image cap">
@@ -146,9 +159,10 @@
 			    </div>
 			  </div>
 			</div>
-		</div>
+	</div>
 		<div class= "text-center">
-    	<a class="custom-btn btn-dark btn-lg" href="#" role="button">More Recipies</a>
-    </div> 
+    		<a class="custom-btn btn-dark btn-lg" 
+    			href="#" role="button">More Recipies</a>
+    	</div> 
 	</body>
 </html>
