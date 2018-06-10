@@ -19,8 +19,6 @@ $(document).ready(function(){
    		});
 
    });
-
-
 }); 
 function bindModal(recipe, recipeID)
 {
@@ -38,8 +36,6 @@ function bindModal(recipe, recipeID)
 			'</tr>');
 	});
 	$(".modal-instructions").text(initalQuery[recipeID - 1].instructions);
-
-	
 }
 function bindRecipies(query)
 {

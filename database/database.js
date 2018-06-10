@@ -33,7 +33,6 @@ exports.queryRecipe = function(req, res)
 	{
 		if(error) throw error;
 		res.send(JSON.stringify(results));
-		console.log(results);
 	});
 
 };

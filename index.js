@@ -15,6 +15,10 @@ router.get('/',function(req, res)
 {
   res.sendFile(path + '/views/index.html');
 });
+router.get('/meal_plan',function(req, res)
+{
+  res.sendFile(path + '/views/meal_plan.html');
+});
 router.get('/browse',function(req, res)
 {  
 	res.sendFile(path + '/views/browse.html');
