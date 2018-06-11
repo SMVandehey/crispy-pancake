@@ -26,11 +26,15 @@ router.get('/browse',function(req, res)
 router.get('/getBrowseInfo', function(req,res)
 {
 	database.getRecipeTable(req, res);
-})
+});
 router.post('/getRecipe', function(req, res)
 {
 	database.queryRecipe(req,res);
-})
+});
+router.get('/generate', function(req,res)
+{
+	database.generateMealPlan(req,res);
+});
 
 
 app.use(express.static(__dirname + '/public'));
