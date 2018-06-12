@@ -1,8 +1,40 @@
+var initialQuery;
 $(document).ready(function(){
     $.get('/generate', function(data, status){
         bindRecipes(data);
+        initialQuery = JSON.parse(data);
+    });
+    $(".show-btn").click(function(event){
+        var id = $(event.target).closest(".card").prop("id");
+        // card ids start at 0, so add 1 to correct it
+        var recipeID = parseInt(id.slice(4)) + 1; 
+        $.post('/getRecipe', {"recipeID": recipeID}, 
+        function(data,status)
+        {
+            bindModal(JSON.parse(data), recipeID);
+        });
+    });
+    $('#new-plan').click(function() {
+        location.reload();
     });
 });
+function bindModal(recipe, recipeID)
+{
+    $('#modal-table tbody > tr').remove();
+    $(".modal-title").text(initialQuery[recipeID - 1].name);
+    //$(".modal-pic").attr('src', '/images/food' + (recipeID - 1) + '.jpg')
+    $(".modal-description").text(initialQuery[recipeID - 1].description)
+    recipe.forEach(function(ingredient)
+    {
+        var quanity = ingredient.quanity + ' ' + ingredient.unit;
+        var name = ingredient.name;
+        $("#modal-table").append('<tr>' + 
+            '<td>' + quanity + '</td>' +
+            '<td>' + name + '</td>' +
+            '</tr>');
+    });
+    $(".modal-instructions").text(initialQuery[recipeID - 1].instructions);
+}
 
 function bindRecipes(data)
 {

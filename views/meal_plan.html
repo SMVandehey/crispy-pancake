@@ -89,6 +89,39 @@
         </div>
       </div>
     </div>
+  <a id = "new-plan" href="#" class="show-btn custom-btn btn-lg btn btn-dark">New Plan</a>
+  </div>
+
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recipe-name"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <img class = "modal-pic" src = "">
+          <p class="modal-description"></p>
+          <table id = "modal-table" class = "table">
+            <thead>
+            <tr>
+              <th scope="col">Quanity</th>
+              <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <p class="modal-instructions"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>

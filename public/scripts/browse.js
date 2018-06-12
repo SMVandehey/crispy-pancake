@@ -1,10 +1,10 @@
-var initalQuery;
+var initialQuery;
 
 $(document).ready(function(){
 
    $.get("/getBrowseInfo", function(data, status){
    		var obj = JSON.parse(data);
-   		initalQuery = obj
+   		initialQuery = obj
    		bindRecipies(obj);
    }); 
 
@@ -17,15 +17,14 @@ $(document).ready(function(){
    		{
    			bindModal(JSON.parse(data), recipeID);
    		});
-
    });
 }); 
 function bindModal(recipe, recipeID)
 {
 	$('#modal-table tbody > tr').remove();
-	$(".modal-title").text(initalQuery[recipeID - 1].name);
+	$(".modal-title").text(initialQuery[recipeID - 1].name);
 	//$(".modal-pic").attr('src', '/images/food' + (recipeID - 1) + '.jpg')
-	$(".modal-description").text(initalQuery[recipeID - 1].description)
+	$(".modal-description").text(initialQuery[recipeID - 1].description)
 	recipe.forEach(function(ingredient)
 	{
 		var quanity = ingredient.quanity + ' ' + ingredient.unit;
@@ -35,7 +34,7 @@ function bindModal(recipe, recipeID)
 			'<td>' + name + '</td>' +
 			'</tr>');
 	});
-	$(".modal-instructions").text(initalQuery[recipeID - 1].instructions);
+	$(".modal-instructions").text(initialQuery[recipeID - 1].instructions);
 }
 function bindRecipies(query)
 {
