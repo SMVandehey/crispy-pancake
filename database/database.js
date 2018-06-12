@@ -68,19 +68,9 @@ function getRandomIDs(results)
 }
 exports.generateMealPlan = function(req,res)
 {
-	var countQuery = "SELECT count(*) AS count FROM recipe;"
-	con.query(countQuery, function(error,results,fields){
-		if(error) throw error;
-		var IDs = getRandomIDs(results);
-		var recipeQuery = "SELECT * FROM Recipe WHERE ";
-		for(var i = 0; i < 4; i++){
-			recipeQuery = recipeQuery.concat("Recipe.recipeID = '" +IDs[i]+ "' OR ");
-		}
-		recipeQuery = recipeQuery.concat("Recipe.recipeID = '" + IDs[4] + "';");
-		
-		con.query(recipeQuery, function(finalError, finalResults, finalFields){
-			res.send(JSON.stringify(finalResults));	
-		});
-
+	var recipeQuery = "SELECT * FROM Recipe ORDER BY RAND() LIMIT 5" ;
+	con.query(recipeQuery, function(error,results,fields){
+	if(error) throw error;
+		res.send(JSON.stringify(results));	
 	});
 };
