@@ -7,23 +7,24 @@ $(document).ready(function(){
     $(".show-btn").click(function(event){
         var id = $(event.target).closest(".card").prop("id");
         // card ids start at 0, so add 1 to correct it
-        var recipeID = parseInt(id.slice(4)) + 1; 
+        var cardID = parseInt(id.slice(4)); 
+        var recipeID = initialQuery[cardID].recipeID;
         $.post('/getRecipe', {"recipeID": recipeID}, 
         function(data,status)
         {
-            bindModal(JSON.parse(data), recipeID);
+            bindModal(JSON.parse(data), cardID);
         });
     });
     $('#new-plan').click(function() {
         location.reload();
     });
 });
-function bindModal(recipe, recipeID)
+function bindModal(recipe, cardID)
 {
     $('#modal-table tbody > tr').remove();
-    $(".modal-title").text(initialQuery[recipeID - 1].name);
+    $(".modal-title").text(initialQuery[cardID].name);
     //$(".modal-pic").attr('src', '/images/food' + (recipeID - 1) + '.jpg')
-    $(".modal-description").text(initialQuery[recipeID - 1].description)
+    $(".modal-description").text(initialQuery[cardID].description)
     recipe.forEach(function(ingredient)
     {
         var quanity = ingredient.quanity + ' ' + ingredient.unit;
@@ -33,7 +34,7 @@ function bindModal(recipe, recipeID)
             '<td>' + name + '</td>' +
             '</tr>');
     });
-    $(".modal-instructions").text(initialQuery[recipeID - 1].instructions);
+    $(".modal-instructions").text(initialQuery[cardID].instructions);
 }
 
 function bindRecipes(data)
